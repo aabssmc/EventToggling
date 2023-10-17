@@ -18,6 +18,8 @@ public class TabCompletion implements TabCompleter {
             tabs.add(2, "falldamage");
             tabs.add(3, "pvp");
             tabs.add(4, "chat");
+            tabs.add(5, "drop");
+            tabs.add(6, "pickup");
             return tabs;
         }
         return null;

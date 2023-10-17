@@ -24,7 +24,10 @@ public class EventToggling extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PvP(this), this);
         getServer().getPluginManager().registerEvents(new FallDamage(), this);
         getServer().getPluginManager().registerEvents(new Chat(this), this);
+        getServer().getPluginManager().registerEvents(new Drop(this), this);
+        getServer().getPluginManager().registerEvents(new PickUp(), this);
 
+        // bStats registration
         int pluginId = 20073;
         Metrics metrics = new Metrics(this, pluginId);
     }

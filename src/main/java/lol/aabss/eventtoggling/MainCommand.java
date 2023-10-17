@@ -29,29 +29,26 @@ public class MainCommand implements CommandExecutor {
             String isenabled = this.plugin.getConfig().getString("isenabled");
             String nopermmsg = this.plugin.getConfig().getString("nopermmsg");
             String noargmsg = this.plugin.getConfig().getString("noargmsg");
-            if (args.length == 0){
+            if (args.length == 0) {
                 if (noargmsg != null) {
-                    if (prefix == null){
+                    if (prefix == null) {
                         noargmsg = noargmsg.replace("%prefix%", "");
-                    }
-                    else{
+                    } else {
                         noargmsg = noargmsg.replace("%prefix%", prefix);
                     }
                     noargmsg = noargmsg.replace("%event%", "Build");
                     s.sendMessage(ChatColor.translateAlternateColorCodes('&', noargmsg));
                 }
-            }
-            else {
+            } else {
                 // Build Toggling -------------------
                 if (args[0].equals("build") || args[0].equals("place")) {
                     if (sender.hasPermission("eventtoggling.build.use")) {
                         if (DisabledEvents.contains("build")) {
                             DisabledEvents.remove("build");
                             if (isenabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isenabled = isenabled.replace("%prefix%", "");
-                                }
-                                else{
+                                } else {
                                     isenabled = isenabled.replace("%prefix%", prefix);
                                 }
                                 isenabled = isenabled.replace("%event%", "Build");
@@ -60,10 +57,9 @@ public class MainCommand implements CommandExecutor {
                         } else if (!DisabledEvents.contains("build")) {
                             DisabledEvents.add("build");
                             if (isdisabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isdisabled = isdisabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isdisabled = isdisabled.replace("%prefix%", prefix);
                                 }
                                 isdisabled = isdisabled.replace("%event%", "Build");
@@ -72,10 +68,9 @@ public class MainCommand implements CommandExecutor {
                         }
                     } else {
                         if (nopermmsg != null) {
-                            if (prefix == null){
+                            if (prefix == null) {
                                 nopermmsg = nopermmsg.replace("%prefix%", "");
-                            }
-                            else {
+                            } else {
                                 nopermmsg = nopermmsg.replace("%prefix%", prefix);
                             }
                             nopermmsg = nopermmsg.replace("%event%", "Build");
@@ -91,10 +86,9 @@ public class MainCommand implements CommandExecutor {
                         if (DisabledEvents.contains("break")) {
                             DisabledEvents.remove("break");
                             if (isenabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isenabled = isenabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isenabled = isenabled.replace("%prefix%", prefix);
                                 }
                                 isenabled = isenabled.replace("%event%", "Break");
@@ -103,10 +97,9 @@ public class MainCommand implements CommandExecutor {
                         } else if (!DisabledEvents.contains("break")) {
                             DisabledEvents.add("break");
                             if (isdisabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isdisabled = isdisabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isdisabled = isdisabled.replace("%prefix%", prefix);
                                 }
                                 isdisabled = isdisabled.replace("%event%", "Break");
@@ -115,10 +108,9 @@ public class MainCommand implements CommandExecutor {
                         }
                     } else {
                         if (nopermmsg != null) {
-                            if (prefix == null){
+                            if (prefix == null) {
                                 nopermmsg = nopermmsg.replace("%prefix%", "");
-                            }
-                            else {
+                            } else {
                                 nopermmsg = nopermmsg.replace("%prefix%", prefix);
                             }
                             nopermmsg = nopermmsg.replace("%event%", "Break");
@@ -134,10 +126,9 @@ public class MainCommand implements CommandExecutor {
                         if (DisabledEvents.contains("pvp")) {
                             DisabledEvents.remove("pvp");
                             if (isenabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isenabled = isenabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isenabled = isenabled.replace("%prefix%", prefix);
                                 }
                                 isenabled = isenabled.replace("%event%", "PvP");
@@ -146,10 +137,9 @@ public class MainCommand implements CommandExecutor {
                         } else if (!DisabledEvents.contains("pvp")) {
                             DisabledEvents.add("pvp");
                             if (isdisabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isdisabled = isdisabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isdisabled = isdisabled.replace("%prefix%", prefix);
                                 }
                                 isdisabled = isdisabled.replace("%event%", "PvP");
@@ -158,10 +148,9 @@ public class MainCommand implements CommandExecutor {
                         }
                     } else {
                         if (nopermmsg != null) {
-                            if (prefix == null){
+                            if (prefix == null) {
                                 nopermmsg = nopermmsg.replace("%prefix%", "");
-                            }
-                            else {
+                            } else {
                                 nopermmsg = nopermmsg.replace("%prefix%", prefix);
                             }
                             nopermmsg = nopermmsg.replace("%event%", "PvP");
@@ -170,17 +159,14 @@ public class MainCommand implements CommandExecutor {
                     }
                 }
 
-                // Fall Damage Toggling -------------------
-
                 else if (args[0].equals("falldamage") || args[0].equals("fd")) {
                     if (sender.hasPermission("eventtoggling.falldamage.use")) {
                         if (DisabledEvents.contains("fd")) {
                             DisabledEvents.remove("fd");
                             if (isenabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isenabled = isenabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isenabled = isenabled.replace("%prefix%", prefix);
                                 }
                                 isenabled = isenabled.replace("%event%", "Fall Damage");
@@ -189,10 +175,9 @@ public class MainCommand implements CommandExecutor {
                         } else if (!DisabledEvents.contains("fd")) {
                             DisabledEvents.add("fd");
                             if (isdisabled != null) {
-                                if (prefix == null){
+                                if (prefix == null) {
                                     isdisabled = isdisabled.replace("%prefix%", "");
-                                }
-                                else {
+                                } else {
                                     isdisabled = isdisabled.replace("%prefix%", prefix);
                                 }
                                 isdisabled = isdisabled.replace("%event%", "Fall Damage");
@@ -201,10 +186,9 @@ public class MainCommand implements CommandExecutor {
                         }
                     } else {
                         if (nopermmsg != null) {
-                            if (prefix == null){
+                            if (prefix == null) {
                                 nopermmsg = nopermmsg.replace("%prefix%", "");
-                            }
-                            else {
+                            } else {
                                 nopermmsg = nopermmsg.replace("%prefix%", prefix);
                             }
                             nopermmsg = nopermmsg.replace("%event%", "Fall Damage");
@@ -213,44 +197,114 @@ public class MainCommand implements CommandExecutor {
                     }
                 }
 
-            // Fall Damage Toggling -------------------
-
                 else if (args[0].equals("chat") || args[0].equals("chat")) {
-                if (sender.hasPermission("eventtoggling.chat.use")) {
-                    if (DisabledEvents.contains("chat")) {
-                        DisabledEvents.remove("chat");
-                        if (isenabled != null) {
-                            if (prefix == null){
-                                isenabled = isenabled.replace("%prefix%", "");
+                    if (sender.hasPermission("eventtoggling.chat.use")) {
+                        if (DisabledEvents.contains("chat")) {
+                            DisabledEvents.remove("chat");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Chat");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
                             }
-                            else {
+                        } else if (!DisabledEvents.contains("chat")) {
+                            DisabledEvents.add("chat");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Chat");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
+                        }
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "Chat");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
+                    }
+                }
+
+                else if (args[0].equals("drop")) {
+                    if (sender.hasPermission("eventtoggling.drop.use")) {
+                        if (DisabledEvents.contains("drop")) {
+                            DisabledEvents.remove("drop");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Drop");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                            }
+                        } else if (!DisabledEvents.contains("drop")) {
+                            DisabledEvents.add("drop");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Drop");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
+                        }
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "Drop");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
+                    }
+                }
+                else if (args[0].equals("pickup")) {
+                if (sender.hasPermission("eventtoggling.pickup.use")) {
+                    if (DisabledEvents.contains("pickup")) {
+                        DisabledEvents.remove("pickup");
+                        if (isenabled != null) {
+                            if (prefix == null) {
+                                isenabled = isenabled.replace("%prefix%", "");
+                            } else {
                                 isenabled = isenabled.replace("%prefix%", prefix);
                             }
-                            isenabled = isenabled.replace("%event%", "Chat");
+                            isenabled = isenabled.replace("%event%", "Pick Up");
                             s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
                         }
-                    } else if (!DisabledEvents.contains("chat")) {
-                        DisabledEvents.add("chat");
+                    } else if (!DisabledEvents.contains("pickup")) {
+                        DisabledEvents.add("pickup");
                         if (isdisabled != null) {
-                            if (prefix == null){
+                            if (prefix == null) {
                                 isdisabled = isdisabled.replace("%prefix%", "");
-                            }
-                            else {
+                            } else {
                                 isdisabled = isdisabled.replace("%prefix%", prefix);
                             }
-                            isdisabled = isdisabled.replace("%event%", "Chat");
+                            isdisabled = isdisabled.replace("%event%", "Pick Up");
                             s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
                         }
                     }
                 } else {
                     if (nopermmsg != null) {
-                        if (prefix == null){
+                        if (prefix == null) {
                             nopermmsg = nopermmsg.replace("%prefix%", "");
-                        }
-                        else {
+                        } else {
                             nopermmsg = nopermmsg.replace("%prefix%", prefix);
                         }
-                        nopermmsg = nopermmsg.replace("%event%", "Chat");
+                        nopermmsg = nopermmsg.replace("%event%", "Pick Up");
                         s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
                     }
                 }

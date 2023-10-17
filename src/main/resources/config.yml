@@ -13,7 +13,7 @@ nopermmsg: '%prefix% &cYou can not use this!'
 nocommandpermmsg: '%prefix% &cYou can not use this command!'
 
 #The msg sent when the command is sent without any args.
-noargmsg: '%prefix% &cPlease set a event to cancel!'
+noargmsg: '%prefix% &cPlease set a event to toggle!'
 
 #The msg sent when the command is sent without a valid arg.
 invalidargmsg: '%prefix% &cThat is an invalid argument.'
