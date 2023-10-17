@@ -16,20 +16,11 @@ public class OtherCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         CommandSender s = sender;
-        String noargmsg = this.plugin.getConfig().getString("noargmsg");
-        String invalidargmsg = this.plugin.getConfig().getString("invalidargmsg");
-        String nopermmsg = this.plugin.getConfig().getString("nopermmsg");
+        String nocommandpermmsg = this.plugin.getConfig().getString("nopermmsg");
         if (sender.hasPermission("eventtoggling.command")) {
             if (args.length == 0) {
-                if (noargmsg != null) {
-                    String prefix = this.plugin.getConfig().getString("prefix");
-                    if (prefix == null) {
-                        noargmsg = noargmsg.replace("%prefix%", "");
-                    } else {
-                        noargmsg = noargmsg.replace("%prefix%", prefix);
-                    }
-                    s.sendMessage(ChatColor.translateAlternateColorCodes('&', noargmsg));
-                }
+                String prefix = this.plugin.getConfig().getString("prefix");
+                s.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + ChatColor.RED + " /eventtoggling <reload>"));
             } else {
                 if (args[0].equals("reload")){
                     this.plugin.saveConfig();
@@ -44,14 +35,14 @@ public class OtherCommand implements CommandExecutor {
             }
         } else{
             String prefix = this.plugin.getConfig().getString("prefix");
-            if (nopermmsg != null) {
+            if (nocommandpermmsg != null) {
                 if (prefix == null) {
-                    nopermmsg = nopermmsg.replace("%prefix%", "");
+                    nocommandpermmsg = nocommandpermmsg.replace("%prefix%", "");
                 } else {
-                    nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                    nocommandpermmsg = nocommandpermmsg.replace("%prefix%", prefix);
                 }
-                nopermmsg = nopermmsg.replace("%event%", "Build");
-                s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                nocommandpermmsg = nocommandpermmsg.replace("%event%", "Build");
+                s.sendMessage(ChatColor.translateAlternateColorCodes('&', nocommandpermmsg));
             }
         }return false;
     }

@@ -26,7 +26,7 @@ public class EventToggling extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FallDamage(), this);
         getServer().getPluginManager().registerEvents(new Chat(this), this);
 
-        int pluginId = 1234;
+        int pluginId = 20073;
         Metrics metrics = new Metrics(this, pluginId);
     }
 
