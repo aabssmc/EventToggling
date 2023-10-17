@@ -23,7 +23,7 @@ public class OtherCommand implements CommandExecutor {
                 s.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + ChatColor.RED + " /eventtoggling <reload>"));
             } else {
                 if (args[0].equals("reload")){
-                    this.plugin.saveConfig();
+                    this.plugin.reloadConfig();
                     String prefix = this.plugin.getConfig().getString("prefix");
                     System.out.print(prefix + ChatColor.GREEN + "Config reloaded!");
                     s.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + ChatColor.GREEN + " Config reloaded!"));
