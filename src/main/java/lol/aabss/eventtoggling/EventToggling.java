@@ -1,7 +1,6 @@
 package lol.aabss.eventtoggling;
 
 import lol.aabss.eventtoggling.Listeners.*;
-import lol.aabss.eventtoggling.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class EventToggling extends JavaPlugin {
