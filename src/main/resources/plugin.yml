@@ -1,0 +1,12 @@
+name: EventToggling
+version: '${version}'
+main: lol.aabss.eventtoggling.EventToggling
+api-version: '1.20'
+authors: [aabss]
+description: Toggle lots of events!
+website: https://aabss.lol
+commands:
+  toggle:
+    description: Toggle lots of events!
+  eventtoggling:
+    description: Other command.
