@@ -1,4 +1,4 @@
-package lol.aabss.eventtoggling;
+package lol.aabss.eventtoggling.TabCompletions;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

@@ -1,4 +1,4 @@
-package lol.aabss.eventtoggling;
+package lol.aabss.eventtoggling.TabCompletions;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -20,6 +20,11 @@ public class TabCompletion implements TabCompleter {
             tabs.add(4, "chat");
             tabs.add(5, "drop");
             tabs.add(6, "pickup");
+            tabs.add(7, "tnt");
+            tabs.add(8, "explosions");
+            tabs.add(9, "craft");
+            tabs.add(10, "enchant");
+            tabs.add(10, "move");
             return tabs;
         }
         return null;

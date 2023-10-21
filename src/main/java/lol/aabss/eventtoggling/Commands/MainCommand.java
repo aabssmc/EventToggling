@@ -1,5 +1,6 @@
-package lol.aabss.eventtoggling;
+package lol.aabss.eventtoggling.Commands;
 
+import lol.aabss.eventtoggling.EventToggling;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -157,9 +158,7 @@ public class MainCommand implements CommandExecutor {
                             s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
                         }
                     }
-                }
-
-                else if (args[0].equals("falldamage") || args[0].equals("fd")) {
+                } else if (args[0].equals("falldamage") || args[0].equals("fd")) {
                     if (sender.hasPermission("eventtoggling.falldamage.use")) {
                         if (DisabledEvents.contains("fd")) {
                             DisabledEvents.remove("fd");
@@ -196,6 +195,8 @@ public class MainCommand implements CommandExecutor {
                         }
                     }
                 }
+
+                //Chat Toggling
 
                 else if (args[0].equals("chat") || args[0].equals("chat")) {
                     if (sender.hasPermission("eventtoggling.chat.use")) {
@@ -235,6 +236,8 @@ public class MainCommand implements CommandExecutor {
                     }
                 }
 
+                //Drop Toggling
+
                 else if (args[0].equals("drop")) {
                     if (sender.hasPermission("eventtoggling.drop.use")) {
                         if (DisabledEvents.contains("drop")) {
@@ -272,49 +275,247 @@ public class MainCommand implements CommandExecutor {
                         }
                     }
                 }
+
+                // Pick Up Toggling
+
                 else if (args[0].equals("pickup")) {
-                if (sender.hasPermission("eventtoggling.pickup.use")) {
-                    if (DisabledEvents.contains("pickup")) {
-                        DisabledEvents.remove("pickup");
-                        if (isenabled != null) {
-                            if (prefix == null) {
-                                isenabled = isenabled.replace("%prefix%", "");
-                            } else {
-                                isenabled = isenabled.replace("%prefix%", prefix);
+                    if (sender.hasPermission("eventtoggling.pickup.use")) {
+                        if (DisabledEvents.contains("pickup")) {
+                            DisabledEvents.remove("pickup");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Pick Up");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
                             }
-                            isenabled = isenabled.replace("%event%", "Pick Up");
-                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                        } else if (!DisabledEvents.contains("pickup")) {
+                            DisabledEvents.add("pickup");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Pick Up");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
                         }
-                    } else if (!DisabledEvents.contains("pickup")) {
-                        DisabledEvents.add("pickup");
-                        if (isdisabled != null) {
+                    } else {
+                        if (nopermmsg != null) {
                             if (prefix == null) {
-                                isdisabled = isdisabled.replace("%prefix%", "");
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
                             } else {
-                                isdisabled = isdisabled.replace("%prefix%", prefix);
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
                             }
-                            isdisabled = isdisabled.replace("%event%", "Pick Up");
-                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            nopermmsg = nopermmsg.replace("%event%", "Pick Up");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
                         }
                     }
-                } else {
-                    if (nopermmsg != null) {
-                        if (prefix == null) {
-                            nopermmsg = nopermmsg.replace("%prefix%", "");
-                        } else {
-                            nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                }
+                else if (args[0].equals("tnt")) {
+                    if (sender.hasPermission("eventtoggling.tnt.use")) {
+                        if (DisabledEvents.contains("tnt")) {
+                            DisabledEvents.remove("tnt");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "TNT");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                            }
+                        } else if (!DisabledEvents.contains("tnt")) {
+                            DisabledEvents.add("tnt");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "TNT");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
                         }
-                        nopermmsg = nopermmsg.replace("%event%", "Pick Up");
-                        s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "TNT");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
+                    }
+                }
+
+                //explosions toggling
+
+                else if (args[0].equals("explosions")) {
+                    if (sender.hasPermission("eventtoggling.explosions.use")) {
+                        if (DisabledEvents.contains("explosions")) {
+                            DisabledEvents.remove("explosions");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Explosions");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                            }
+                        } else if (!DisabledEvents.contains("explosions")) {
+                            DisabledEvents.add("explosions");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Explosions");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
+                        }
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "Explosions");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
+                    }
+                }
+
+                //crafting toggling
+
+                else if (args[0].equals("craft")) {
+                    if (sender.hasPermission("eventtoggling.craft.use")) {
+                        if (DisabledEvents.contains("craft")) {
+                            DisabledEvents.remove("craft");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Craft");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                            }
+                        } else if (!DisabledEvents.contains("craft")) {
+                            DisabledEvents.add("craft");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Craft");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
+                        }
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "Craft");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
+                    }
+                }
+
+                //Enchanting
+
+                else if (args[0].equals("enchant")) {
+                    if (sender.hasPermission("eventtoggling.enchant.use")) {
+                        if (DisabledEvents.contains("enchant")) {
+                            DisabledEvents.remove("enchant");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Enchant");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                            }
+                        } else if (!DisabledEvents.contains("enchant")) {
+                            DisabledEvents.add("enchant");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Enchant");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
+                        }
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "Enchant");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
+                    }
+                }
+
+                // Moving
+
+                else if (args[0].equals("move")) {
+                    if (sender.hasPermission("eventtoggling.movet.use")) {
+                        if (DisabledEvents.contains("move")) {
+                            DisabledEvents.remove("move");
+                            if (isenabled != null) {
+                                if (prefix == null) {
+                                    isenabled = isenabled.replace("%prefix%", "");
+                                } else {
+                                    isenabled = isenabled.replace("%prefix%", prefix);
+                                }
+                                isenabled = isenabled.replace("%event%", "Move");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isenabled));
+                            }
+                        } else if (!DisabledEvents.contains("move")) {
+                            DisabledEvents.add("move");
+                            if (isdisabled != null) {
+                                if (prefix == null) {
+                                    isdisabled = isdisabled.replace("%prefix%", "");
+                                } else {
+                                    isdisabled = isdisabled.replace("%prefix%", prefix);
+                                }
+                                isdisabled = isdisabled.replace("%event%", "Move");
+                                s.sendMessage(ChatColor.translateAlternateColorCodes('&', isdisabled));
+                            }
+                        }
+                    } else {
+                        if (nopermmsg != null) {
+                            if (prefix == null) {
+                                nopermmsg = nopermmsg.replace("%prefix%", "");
+                            } else {
+                                nopermmsg = nopermmsg.replace("%prefix%", prefix);
+                            }
+                            nopermmsg = nopermmsg.replace("%event%", "Move");
+                            s.sendMessage(ChatColor.translateAlternateColorCodes('&', nopermmsg));
+                        }
                     }
                 }
             }
         }
-
-
         //No command permission sending
-
-        } else{
+        else{
             String nocommandpermmsg = this.plugin.getConfig().getString("nocommandpermmsg");
             String prefix = this.plugin.getConfig().getString("prefix");
             if (nocommandpermmsg != null) {

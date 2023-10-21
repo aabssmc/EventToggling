@@ -1,9 +1,7 @@
 package lol.aabss.eventtoggling.Listeners;
 
-import lol.aabss.eventtoggling.EventToggling;
-import lol.aabss.eventtoggling.MainCommand;
+import lol.aabss.eventtoggling.Commands.MainCommand;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

@@ -1,6 +1,6 @@
 package lol.aabss.eventtoggling.Listeners;
 
-import lol.aabss.eventtoggling.MainCommand;
+import lol.aabss.eventtoggling.Commands.MainCommand;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
